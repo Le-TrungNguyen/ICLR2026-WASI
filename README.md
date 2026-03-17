@@ -9,6 +9,10 @@ Implementation for the paper `Efficient Resource-Constrained Training of Transfo
 
 In today’s world, where AI plays a major role in everyday life, energy consumption and data privacy have become critical concerns. On-device learning offers a promising solution by enabling models to train directly on edge devices, thereby reducing energy usage and minimizing the risk of data leakage. However, the increasing size of modern neural networks poses a serious challenge for on-device training. Although prior work has mainly focused on compact convolutional architectures, we explore a different direction by applying subspace-based training to transformer models. Based on the idea that a model’s essential information resides in a fixed subspace, we introduce Weight-Activation Subspace Iteration (WASI), a method designed to overcome the memory bottleneck of backpropagation and improve inference efficiency in transformer-based models by constraining training to this subspace. Our results show that, with accuracy comparable to vanilla training, WASI reduces memory usage by up to $62\times$ and computational cost (FLOPs) by up to $2\times$. Moreover, when tested on a Raspberry Pi 5, WASI delivers approximately $1.4\times$ faster training and inference than vanilla training.
 
+<p align="center">
+  <img src="figures/teaser.png" width="300"/>
+</p>
+
 </details>
 
 
