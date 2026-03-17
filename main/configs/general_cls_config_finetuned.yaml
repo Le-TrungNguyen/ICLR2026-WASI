@@ -1,0 +1,40 @@
+trainer:
+  gpus: 1
+  gradient_clip_val: 2.0
+  max_epochs: 50
+  log_every_n_steps: 5
+  num_sanity_val_steps: 0
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+      init_args:
+        logging_interval: 'epoch'
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+        save_top_k: 1
+        save_last: True
+        monitor: "val-acc"
+        mode: 'max'
+        filename: "{epoch:02d}-{val-acc:.3f}"
+model:
+  is_pretrained: False
+  backbone_args:
+    in_channels: 3
+    output_stride: 32
+    pretrained: True # for mcunet
+  weight_decay: 1e-4
+  set_bn_eval: True
+  use_sgd: True
+  learning_rate: 0.05
+  momentum: 0
+  anneling_steps: 50
+  scheduler_interval: "epoch"
+  init_lr_prod: 0.01
+data:
+  data_dir: "./data/cifar10"
+  name: "cifar10"
+  batch_size: 128
+  train_workers: 24
+  val_workers: 24
+logger:
+  save_dir: "runs/cls/vit_b_32"
+  exp_name: "filt_last1"

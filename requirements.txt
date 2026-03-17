@@ -1,0 +1,13 @@
+gdown==5.2.0
+wget==3.2
+six==1.16.0
+tqdm==4.65.2
+yapf==0.40.1
+scipy==1.10.1
+openpyxl==3.1.5
+pip==23.2.1
+tensorboard==2.14.0
+matplotlib
+datasets==3.1.0
+timm==0.6.5
+gdown==5.2.1
