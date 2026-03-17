@@ -34,10 +34,8 @@ def get_encoder(name, checkpoint=None, is_pretrained=False, in_channels=3, depth
                 pruned_dict = torch.load(checkpoint, weights_only=False, map_location='cpu') # Case SVD-LLM
                 model = pruned_dict['model']
                 return model
-            elif weights == "full_imagenet":
+            else:
                 return vit_b_32(weights=ViT_B_32_Weights.IMAGENET1K_V1)
-            elif weights == "raw":
-                return vit_b_32(weights=None)
     else: # Raw checkpoint
         if name == "resnet18": return resnet18()
         elif name == "resnet34": return resnet34()
